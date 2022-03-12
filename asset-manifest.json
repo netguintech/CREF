@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/CReF/static/css/main.073c9b0a.css",
-    "main.js": "/CReF/static/js/main.ecfd0e83.js",
+    "main.js": "/CReF/static/js/main.99ccbe25.js",
     "static/js/787.28cb0dcd.chunk.js": "/CReF/static/js/787.28cb0dcd.chunk.js",
     "static/media/netguin_logo.png": "/CReF/static/media/netguin_logo.28f60f4d923b2a476cd0.png",
     "static/media/logo.png": "/CReF/static/media/logo.76e4593c72416a0c241d.png",
     "static/media/logo.svg": "/CReF/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/CReF/index.html",
     "main.073c9b0a.css.map": "/CReF/static/css/main.073c9b0a.css.map",
-    "main.ecfd0e83.js.map": "/CReF/static/js/main.ecfd0e83.js.map",
+    "main.99ccbe25.js.map": "/CReF/static/js/main.99ccbe25.js.map",
     "787.28cb0dcd.chunk.js.map": "/CReF/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.ecfd0e83.js"
+    "static/js/main.99ccbe25.js"
   ]
 }
