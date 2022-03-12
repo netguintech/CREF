@@ -249,15 +249,15 @@ export default function Parent() {
 
             </Navbar>
 
-            <Navbar   style = {{backgroundColor: '#ededed', fontFamily: "monospace",fontSize: "large", fontWeight: "800"}} fixed="bottom">
+            <Navbar   style = {{backgroundColor: '#ededed',fontSize: "large", fontWeight: "800"}} fixed="bottom">
                 <Container  style = {{justifyContent:"center"}}>
-                    <Navbar.Brand style={{ fontWeight: '100' }} > <img
+                    <Navbar.Brand  > <img
                         alt=""
                         src={netguinlogo}
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
-                    />{' '}From NetGuin</Navbar.Brand>
+                    />{' '}from NetGuin</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                 </Container>
