@@ -5,6 +5,7 @@ import Labels from './Labels';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Accordion, Alert, Badge, Form, Button, Navbar, Nav } from 'react-bootstrap';
 import logo from './logo.png';
+import netguinlogo from './netguin_logo.png'
 
 const git_api = "https://api.github.com/"
 const load_repo_message = "Load Github Repositories first"
@@ -207,9 +208,9 @@ export default function Parent() {
     return (
         <>
             <link href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet" />
-            {console.log(logo)}
-            <Navbar collapseOnSelect expand="lg" variant="light" bg="light" style={{ Color: "#e87722" }}>
-                <Container>
+
+            <Navbar collapseOnSelect expand="lg" variant="light"  style = {{backgroundColor: '#bbece5'}} >
+                <Container >
                     <Navbar.Brand > <img
                         alt=""
                         src={logo}
@@ -217,45 +218,79 @@ export default function Parent() {
                         height="30"
                         className="d-inline-block align-top"
                     />{' '}CReF</Navbar.Brand>
-                    <Navbar.Text>
-                        Total Repositories: {repos.length}
-                    </Navbar.Text>
-                    <Nav className="me-auto">
-                        <Nav.Link id="load_repositores" onClick={selectfeature} >Load Repositories</Nav.Link>
-                        <Nav.Link id="read_github_repos" onClick={selectfeature} >Repositories</Nav.Link>
-                        <Nav.Link id="milestone_feature" onClick={selectfeature} >Milestones</Nav.Link>
-                        <Nav.Link id="label_feature" onClick={selectfeature} >Labels</Nav.Link>
-                        <Nav.Link id="label_feature" href="https://github.com/paridhi-gupta1998/CrossOrgFeatures" >Github</Nav.Link>
-                    </Nav>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav" style = {{justifyContent: "space-around" }}>
+                        <Nav >
+                            <Nav.Item>
+                                <Navbar.Text>
+                                    Total Repositories: {repos.length}
+                                </Navbar.Text>
+                            </Nav.Item>
+                        </Nav>
+                        <Nav fill variant="tabs" defaultActiveKey="load_repositores"  >
+                            <Nav.Item>
+                                <Nav.Link id="load_repositores" onClick={selectfeature} eventKey="load_repositores"  >Load Repositories</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link id="read_github_repos" onClick={selectfeature} eventKey="read_github_repos"  >Repositories</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link id="milestone_feature" onClick={selectfeature} eventKey="milestone_feature"  >Milestones</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link id="label_feature" onClick={selectfeature} eventKey="label_feature"  >Labels</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link id="git_link" eventKey="git_link" href="https://github.com/netguintech/CReF" >Github</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+
+            </Navbar>
+
+            <Navbar   style = {{backgroundColor: '#ededed', fontFamily: "monospace",fontSize: "large", fontWeight: "800"}} fixed="bottom">
+                <Container  style = {{justifyContent:"center"}}>
+                    <Navbar.Brand style={{ fontWeight: '100' }} > <img
+                        alt=""
+                        src={netguinlogo}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                    />{' '}From Netguin</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
                 </Container>
 
             </Navbar>
             <br />
-            {feature && feature === "load_repositores" ?
-                <Container>
-                    <h1> Load Repositories</h1>
-                    <Row className="g-12" className=" align-items-end justify-content-md-center">
-                        <Col md={4}>
-                            <Form.Group className="mb-5">
-                                <Form.Label htmlFor="disabledTextInput">User Name</Form.Label>
-                                <Form.Control id="username" onChange={inputsHandler} value={inputField.username} required />
-                            </Form.Group>
+            {
+        feature && feature === "load_repositores" ?
+        <Container>
+            <h1> Load Repositories</h1>
+            <Row className="g-12" className=" align-items-end justify-content-md-center">
+                <Col md={4}>
+                    <Form.Group className="mb-5">
+                        <Form.Label htmlFor="disabledTextInput">Github User Name</Form.Label>
+                        <Form.Control id="username" onChange={inputsHandler} value={inputField.username} required />
+                    </Form.Group>
 
 
-                            <Form.Group className="mb-5">
-                                <Form.Label htmlFor="disabledTextInput">Personal Access Token</Form.Label>
-                                <Form.Control type="password" id="pat" onChange={inputsHandler} value={inputField.pat} required />
-                                <Form.Text type="text" target="_blank"><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Click here</a> to know how to create personal access token </Form.Text>
-                            </Form.Group>
+                    <Form.Group className="mb-5">
+                        <Form.Label htmlFor="disabledTextInput">Personal Access Token</Form.Label>
+                        <Form.Control type="password" id="pat" onChange={inputsHandler} value={inputField.pat} required />
+                        <Form.Text type="text" target="_blank"><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Click here</a> to know how to create personal access token </Form.Text>
+                    </Form.Group>
 
 
-                            <Form.Group className="mb-5">
-                                <Button style={{ backgroundColor: "#e87722" }} onClick={submitButton}>Get Repositories</Button>
-                            </Form.Group>
+                    <Form.Group className="mb-5">
+                        <Button style={{ backgroundColor: "#e87722" }} onClick={submitButton}>Get Repositories</Button>
+                    </Form.Group>
 
-                        </Col>
-                    </Row>
-                </Container> : undefined}
+                </Col>
+            </Row>
+        </Container> : undefined
+    }
 
             <Repositories userdata={userdata} feature={feature} repos={repos} get_api={get_api} api={api} git_api={git_api} load_repo_message={load_repo_message} />
             <Milestone userdata={userdata} feature={feature} repos={repos} get_api={get_list_api} api={api} git_api={git_api} load_repo_message={load_repo_message} Featurestatuslist={Featurestatuslist} setFeatureStatusList={setFeatureStatusList} />
