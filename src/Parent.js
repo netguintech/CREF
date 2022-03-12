@@ -257,7 +257,7 @@ export default function Parent() {
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
-                    />{' '}From Netguin</Navbar.Brand>
+                    />{' '}From NetGuin</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                 </Container>
